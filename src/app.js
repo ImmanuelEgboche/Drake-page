@@ -1,18 +1,25 @@
 import React from "react";
-import ArtistInfo from "./components/ArtistInfo"
-import DrakeInfo from "./components/DrakeInfo";
-import UserForm from "./components/UserForm"
-import NavBar from "./components/NavBar";
+import { Layout } from '../layout';
+import { Routes, Route } from 'react-router-dom';
+import * as Pages from './pages';
 
-function App() {
+const App = () => {
     return(
-        <main>
-            <h1>Drake</h1>
-            <NavBar />
-            <UserForm />
-            <DrakeInfo />
-            <ArtistInfo />
-        </main>
+        <Routes>
+            <Route path="/" element={<Layout />}> 
+                <Route index element={<Pages.Home />}>
+                <Route path="Albums" element={<Pages.Albums />}>
+                <Route path="News" element={<Pages.News />}>
+                </Route>
+
+                </Route>
+
+                </Route>
+            </Route>
+
+        
+        </Routes>
+        
     )
 }
 
